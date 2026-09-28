@@ -1,0 +1,37 @@
+# Secrets — never commit
+.env
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+
+# Pytest / coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Database (runtime artifact)
+*.db
+
+# Logs (runtime artifact)
+logs/
+
+# Processed / failed image folders (runtime artifacts)
+processed/
+failed/
+inbox/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

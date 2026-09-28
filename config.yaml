@@ -1,0 +1,47 @@
+# ── Folders ────────────────────────────────────────────────────────────────────
+folders:
+  inbox: ./inbox
+  processed: ./processed
+  failed: ./failed
+  logs: ./logs
+
+# ── LLM ────────────────────────────────────────────────────────────────────────
+llm:
+  # provider: openai | anthropic | watsonx
+  provider: openai
+  model: gpt-4o
+  # watsonx only: leave blank for openai/anthropic
+  watsonx_url: ""
+  watsonx_project_id: ""
+
+# ── OCR fallback ───────────────────────────────────────────────────────────────
+ocr:
+  enabled: true   # fall back to Tesseract if LLM fails or no key is set
+
+# ── Task extraction ────────────────────────────────────────────────────────────
+tasks:
+  confidence_threshold: 0.6          # tasks below this go to needs_review_label
+  needs_review_label: Needs Review
+  default_project: Inbox
+
+# ── Destinations ───────────────────────────────────────────────────────────────
+destinations:
+  # List the destinations to send tasks to. Options: todoist, notion
+  active:
+    - notion
+
+  todoist:
+    default_project_name: Inbox      # created automatically if missing
+
+  notion:
+    # Database must have columns: Name, Status, Due, Priority, Tags, Source Image
+    # NOTION_DATABASE_ID is set in .env
+    status_not_started: "Not started"
+
+# ── Reliability ────────────────────────────────────────────────────────────────
+reliability:
+  dry_run: false                     # set true or pass --dry-run CLI flag
+  api_retry_attempts: 3
+  api_retry_backoff_base: 2          # seconds; doubles each retry
+  file_stability_checks: 3           # how many size checks before processing
+  file_stability_interval: 1.0       # seconds between checks

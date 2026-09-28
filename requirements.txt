@@ -1,0 +1,18 @@
+# ── Runtime dependencies ───────────────────────────────────────────────────────
+watchdog>=4.0
+pillow>=10.0
+opencv-python-headless>=4.9
+pytesseract>=0.3.10
+openai>=1.30
+anthropic>=0.26
+todoist-api-python>=2.1
+notion-client>=2.2
+pydantic>=2.7
+pydantic-settings>=2.3
+python-dotenv>=1.0
+pyyaml>=6.0
+tenacity>=8.3
+
+# ── Dev / test ─────────────────────────────────────────────────────────────────
+pytest>=8.2
+pytest-mock>=3.14
